@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/Button";
+
 export default function DeleteButton({
   action,
 }: {
@@ -9,15 +11,13 @@ export default function DeleteButton({
     <form
       action={action}
       onSubmit={(e) => {
-        if (!confirm("Delete this task?")) e.preventDefault();
+        if (!confirm("Delete this task? This can't be undone."))
+          e.preventDefault();
       }}
     >
-      <button
-        type="submit"
-        className="rounded bg-red-600 px-3 py-1.5 text-white hover:bg-red-700"
-      >
+      <Button type="submit" variant="danger">
         Delete
-      </button>
+      </Button>
     </form>
   );
 }
